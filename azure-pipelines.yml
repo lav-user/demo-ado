@@ -12,6 +12,6 @@ pool:
 steps:
 - task: BatchScript@1
   inputs:
-    filename: '"$(System.DefaultWorkingDirectory)\jenkins-FT.bat"'
+    filename: '"$(System.DefaultWorkingDirectory)\ado-soatestcli.bat"'
     modifyEnvironment: false
   displayName: 'Run a multi-line script'
