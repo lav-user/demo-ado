@@ -3,9 +3,9 @@ set "SOATEST_EXE=C:\Program Files\Parasoft\SOAtest & Virtualize\2022.1"
 set "SOATEST_WORKSPACE=C:\Parasoft\workspace\soavirt\automation"
 
 :: IMPORT PROJECT
-"%SOATEST_EXE%\soatestcli.exe" -import %cd%\%PROJECT_NAME%
+"%SOATEST_EXE%\soatestcli.exe" -data %SOATEST_WORKSPACE% -import %cd%\%PROJECT_NAME%
 
-:: RUN FUNCTIONAL TESTS AND PUBLISH COV
+:: RUN FUNCTIONAL TESTS WITH COV
 "%SOATEST_EXE%\soatestcli.exe" -data %SOA_WORKSPACE% -resource %PROJECT_NAME% -config "user://Run Test with Application Coverage" -report %SOA_WORKSPACE%\report -publish -localsettings %SOA_WORKSPACE%\soatest.properties
 
 :: PUBLISH
