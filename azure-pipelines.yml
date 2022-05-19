@@ -15,3 +15,7 @@ steps:
     filename: '"$(System.DefaultWorkingDirectory)\ado-soatestcli.bat"'
     modifyEnvironment: false
   displayName: 'Run a multi-line script'
+- task: PublishParasoftTestResults@1
+  inputs:
+    testRunner: 'SOAtest9x'
+    testResultsFiles: '**/rep*.xml'
