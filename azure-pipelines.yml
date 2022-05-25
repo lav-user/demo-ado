@@ -14,8 +14,11 @@ steps:
   displayName: run
   inputs: 
     command: run
-    arguments: >
-    -t -e ACCEPT_EULA=true parasoft/soavirt soatestcli 
+    arguments: |
+    -t 
+    -e ACCEPT_EULA=true 
+    parasoft/soavirt 
+    soatestcli 
     -property soatest.license.use_network=true 
     -property license.network.url=$(license.server.url) 
     -property license.network.user=admin 
