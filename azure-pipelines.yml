@@ -7,11 +7,15 @@ trigger:
 - main
 
 pool:
-  vmImage: 'ubuntu-latest'
+  name: Default
 
 steps:
-- task: Docker@2
-  displayName: run
-  inputs: 
-    command: run
-    arguments: 'run -it --rm -e ACCEPT_EULA=false soatestcli -machineId'
+- task: BatchScript@1
+  inputs:
+    filename: '"$(System.DefaultWorkingDirectory)\ado-soatestcli.bat"'
+    modifyEnvironment: false
+  displayName: 'Run a multi-line script'
+- task: PublishParasoftTestResults@1
+  inputs:
+    testRunner: 'SOAtest9x'
+    testResultsFiles: '**/rep*.xml'
