@@ -19,4 +19,4 @@ steps:
   displayName: run
   inputs: 
     command: run
-    arguments: '-t --netwrok=host -e ACCEPT_EULA=true parasoft/soavirt soatestcli -property soatest.license.use_network=true -property license.network.use.specified.server=true -property license.network.url=$(license.server.url) -property license.network.user=admin -property license.network.password=$(license.server.password) -property soatest.license.network.edition=automation_edition -config "user:// Example Configuration" -resource Demo'
+    arguments: '-t --network=host -e ACCEPT_EULA=true parasoft/soavirt soatestcli -property soatest.license.use_network=true -property license.network.use.specified.server=true -property license.network.url=$(license.server.url) -property license.network.user=admin -property license.network.password=$(license.server.password) -property soatest.license.network.edition=automation_edition -config "user:// Example Configuration" -resource Demo'
