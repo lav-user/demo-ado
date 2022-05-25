@@ -14,4 +14,4 @@ steps:
   displayName: run
   inputs: 
     command: run
-    arguments: '-it --rm -e ACCEPT_EULA=true parasoft/soavirt soatestcli -machineId'
+    arguments: '-t --rm -e ACCEPT_EULA=true parasoft/soavirt soatestcli -machineId'
