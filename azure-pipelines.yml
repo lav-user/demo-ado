@@ -19,4 +19,4 @@ steps:
     -property license.network.url=$(license.server.url) \
     -property license.network.user=admin \
     -property license.network.password=$(license.server.password) \
-    -import "user://Example Configuration"'
+    -import ${pwd}/Demo'
