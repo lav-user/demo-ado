@@ -14,7 +14,7 @@ steps:
   displayName: run
   inputs: 
     command: run
-    arguments: '-t -e ACCEPT_EULA=true parasoft/soavirt soatestcli -property soatest.license.use_network=true -property license.network.url=$(license.server.url) -property license.network.user=admin -property license.network.password=$(license.server.password) -import ${pwd}/Demo'
+    arguments: '-t -e ACCEPT_EULA=true parasoft/soavirt soatestcli -import ${pwd}/Demo'
 - task: Docker@2
   displayName: run
   inputs: 
