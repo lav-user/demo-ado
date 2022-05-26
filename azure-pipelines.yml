@@ -12,6 +12,7 @@ pool:
 steps:
 - script: |
     docker --version
+    docker pull parasoft/soavirt
     docker build parasoft/soavirt --tag soavirt
     sleep 30
     echo $( \
