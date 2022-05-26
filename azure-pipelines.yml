@@ -17,9 +17,10 @@ steps:
     -e ACCEPT_EULA=true \
     parasoft/soavirt
     sleep 30
+    docker container ls
     echo $( \
     docker exec -i \
-    soavirt soatestcli \
+    parasoft/soavirt soatestcli \
     -config "user:// Example Configuration" \
     -resource TestAssets \
     -property soatest.license.use_network=true \
