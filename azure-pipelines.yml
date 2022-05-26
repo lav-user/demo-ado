@@ -15,7 +15,8 @@ steps:
     docker run \
     --net=host \
     -e ACCEPT_EULA=true \
-    parasoft/soavirt
+    parasoft/soavirt soatestli\
+    -machineid
     sleep 30
     docker container ls
     echo $( \
