@@ -12,18 +12,20 @@ pool:
 steps:
 - script: |
     docker --version
-    docker run -t --rm --network=host \
+    docker pull parasoft/soavirt
+    docker run -i --rm \
+    -p 8443:8443 \
     -e ACCEPT_EULA=true \
     parasoft/soavirt soatestcli \
+    -config "user:// Example Configuration" \
+    -resource TestAssets \
     -property soatest.license.use_network=true \
     -property license.network.url=$(license.server.url) \
     -property license.network.use.specified.server=true \
     -property license.netwrok.auth.enabled=true \
     -property license.network.user=admin \
     -property license.network.password=$(license.server.password) \
-    -property soatest.license.network.edition=automation_edition \
-    -config "user:// Example Configuration" \
-    -resource TestAssets
+    -property soatest.license.network.edition=automation_edition 
 
 ### Import project into the workspace
 # - task: Docker@2
