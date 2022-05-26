@@ -12,13 +12,13 @@ pool:
 steps:
 - script: |
     docker --version
-    docker pull parasoft/soavirt
-    docker build parasoft/soavirt --tag soavirt
+    docker run \
+    --net=host \
+    -e ACCEPT_EULA=true \
+    parasoft/soavirt
     sleep 30
     echo $( \
-    docker run -i --rm \
-    -p 8443:8443 \
-    -e ACCEPT_EULA=true \
+    docker exec -i \
     soavirt soatestcli \
     -config "user:// Example Configuration" \
     -resource TestAssets \
