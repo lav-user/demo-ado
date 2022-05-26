@@ -18,9 +18,9 @@ steps:
     parasoft/soavirt soatestcli \
     -machineid
     sleep 30
-    docker container ls
+    docker container ls -a
     echo $( \
-    docker exec -i \
+    docker run -i \
     parasoft/soavirt soatestcli \
     -config "user:// Example Configuration" \
     -resource TestAssets \
