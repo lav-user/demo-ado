@@ -15,7 +15,7 @@ steps:
     docker run -i \
     -p 80:80 \
     -e ACCEPT_EULA=true \
-    parasoft/soavirt /bin/bash/ -c \
+    parasoft/soavirt /bin/bash -c \
     "soatestcli -machineid; \
     soatestcli \
     -config "user:// Example Configuration" \
