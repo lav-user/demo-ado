@@ -13,15 +13,11 @@ steps:
 - script: |
     docker --version
     docker run -i \
-    --net=host \
+    -p 80:80 \
     -e ACCEPT_EULA=true \
-    parasoft/soavirt soatestcli \
-    -machineid
-    sleep 30
-    docker container ls -a
-    echo $( \
-    docker run -i \
-    parasoft/soavirt soatestcli \
+    parasoft/soavirt /bin/bash/ -c \
+    "soatestcli -machineid; \
+    soatestcli \
     -config "user:// Example Configuration" \
     -resource TestAssets \
     -property soatest.license.use_network=true \
@@ -31,7 +27,7 @@ steps:
     -property license.network.user=admin \
     -property license.network.password=$(license.server.password) \
     -property soatest.license.network.edition=automation_edition \
-    )
+    "
 
 ### Import project into the workspace
 # - task: Docker@2
