@@ -17,9 +17,9 @@ steps:
   displayName: run
   inputs: 
     command: run
-    arguments: '-t --network=host -e ACCEPT_EULA=true -v $PWD/Demo:/mnt/Demo parasoft/soavirt soatestcli -import /mnt/Demo'
+    arguments: '-t --network=host -e ACCEPT_EULA=true -v ${pwd}/Demo:/mnt/Demo parasoft/soavirt soatestcli -import /mnt/Demo'
 - task: Docker@2
   displayName: run
   inputs: 
     command: run
-    arguments: '-t --rm --network=host -e ACCEPT_EULA=true -v $PWD/Demo:/mnt/Demo parasoft/soavirt soatestcli -property soatest.license.use_network=true -property license.network.url=$(license.server.url) -property license.network.use.specified.server=true -property license.netwrok.auth.enabled=true -property license.network.user=admin -property license.network.password=$(license.server.password) -property soatest.license.network.edition=automation_edition -config "user:// Example Configuration" -resource Demo'
+    arguments: '-t --rm --network=host -e ACCEPT_EULA=true -v ${pwd}/Demo:/mnt/Demo parasoft/soavirt soatestcli -property soatest.license.use_network=true -property license.network.url=$(license.server.url) -property license.network.use.specified.server=true -property license.netwrok.auth.enabled=true -property license.network.user=admin -property license.network.password=$(license.server.password) -property soatest.license.network.edition=automation_edition -config "user:// Example Configuration" -resource Demo'
