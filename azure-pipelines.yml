@@ -40,7 +40,7 @@ steps:
     -e ACCEPT_EULA=true \
     -v "/home/vsts/work/1/s/temp:/temp" \
     parasoft/soavirt /bin/bash -c " \
-    ls -R; \
+    ls -R  '/usr/local/parasoft/parasoft/soavirt_workspace'; \
     soatestcli \
     -localsettings /temp/soatestcli.properties \
     -import /temp/Demo; \
