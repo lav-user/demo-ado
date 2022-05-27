@@ -18,7 +18,7 @@ steps:
     parasoft/soavirt /bin/bash -c \
     "soatestcli -machineid; \
     soatestcli \
-    -config "user://Example Configuration" \
+    -config 'user://Example Configuration' \
     -resource TestAssets \
     -property soatest.license.use_network=true \
     -property license.network.url=$(license.server.url) \
