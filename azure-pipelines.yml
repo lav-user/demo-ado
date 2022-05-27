@@ -36,7 +36,7 @@ steps:
     ls -R
     docker --version
     
-    docker run -t \ 
+    docker run -t \
     -e ACCEPT_EULA=false \
     -v "$(pwd)/temp:/temp" \
     parasoft/soavirt \
