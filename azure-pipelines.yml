@@ -13,7 +13,6 @@ pool:
 steps:
 - script: |
     mkdir temp
-    mkdir temp/reports
     echo ${PWD}
     cp -R $(soatest.project) temp/.
     
@@ -51,8 +50,7 @@ steps:
     -resource /Demo \
     -config 'user://Example Configuration' \
     -localsettings /temp/soatestcli.properties \
-    -report /temp/reports/;
-    ls -R /temp/reports"
+    -report /temp"
 
   displayName: SOATest
   env:
@@ -64,4 +62,4 @@ steps:
   displayName: Publish SOAtest Test Results
   inputs:
     testRunner: 'SOAtest9x'
-    testResultsFiles: '**/rep*.xml'
+    testResultsFiles: '$(Build.Repository.LocalPath)/temp/rep*.xml'
