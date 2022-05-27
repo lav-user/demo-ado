@@ -42,7 +42,6 @@ steps:
     parasoft/soavirt \
     soatestcli \
     -localsettings /temp/soatestcli.properties \
-    -data /soavirt/workspace \
     -import /temp/Demo
 
     docker exec -i \
@@ -53,7 +52,6 @@ steps:
     ls /temp; \
     cat /temp/soatestcli.properties; \
     soatestcli \
-    -data /soavirt/workspace \
     -resource /Demo \
     -config 'builtin://Example Configuration' \
     -localsettings /temp/soatestcli.properties \
