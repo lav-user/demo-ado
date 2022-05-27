@@ -30,7 +30,7 @@ steps:
     virtualize.license.use_network=true" >> temp/soatestcli.properties
     ls -R
     cat temp/soatestcli.properties
-  displayName: "Set Up the temp/soatestcli.properties file"
+  displayName: Setting Up Build Configs
 
 # Mount Settings and Tests and Run
 - script: |
@@ -53,12 +53,14 @@ steps:
     -localsettings /temp/soatestcli.properties \
     -report /temp/reports/"
 
-  displayName: Mount the Project contents to SOAtest CLI Docker Container adn Run tests
+  displayName: SOATest
   env:
     pwd: $(Build.Repository.LocalPath)
 
 # Publish Test Results
 - task: PublishParasoftTestResults@1
+  
+  displayName: Publish SOAtest Test Results
   inputs:
     testRunner: 'SOAtest9x'
     testResultsFiles: '**/rep*.xml'
