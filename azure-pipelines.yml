@@ -48,7 +48,7 @@ steps:
     cat /temp/soatestcli.properties; \
     soatestcli \
     -resource /Demo \
-    -config 'builtin://Example Configuration' \
+    -config 'user://Example Configuration' \
     -localsettings /temp/soatestcli.properties \
     -report /soavirt/report"
 
