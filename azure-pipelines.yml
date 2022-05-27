@@ -9,22 +9,25 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest'
 
+# Set Up Project
 steps:
 - script: |
-    echo $'license.network.auth.enabled=true
-          license.network.password=$(licensePassword)
-          license.network.url=$(licenseServerUrl)
-          license.network.use.specified.server=true
-          license.network.user=admin
-          soatest.license.network.edition=automation_edition
-          soatest.license.use_network=true
-          virtualize.license.network.edition=performance_server_edition
-          virtualize.license.use_network=true' >> localsettings.properties
+    echo $"license.network.auth.enabled=true
+    license.network.password=$(licensePassword)
+    license.network.url=$(licenseServerUrl)
+    license.network.use.specified.server=true
+    license.network.user=admin
+    soatest.license.network.edition=automation_edition
+    soatest.license.use_network=true
+    virtualize.license.network.edition=performance_server_edition
+    virtualize.license.use_network=true" >> localsettings.properties
     cat localsettings.properties
   env: 
     licenseServerUrl: $(license.server.url)
     licensePassword: parasoft.vm
   displayName: "Set Up the localsettings.properties file"
+
+# Mount Settings and Tests and Run
 - script: |
     ls -R
     docker --version
