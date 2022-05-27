@@ -38,7 +38,7 @@ steps:
     
     docker run -t \ 
     -e ACCEPT_EULA=false \
-    -v "$(Build.Repository.LocalPath)/temp:/temp" \
+    -v "$(pwd)/temp:/temp" \
     parasoft/soavirt \
     soatestcli \
     -localsettings /temp/soatestcli.properties \
@@ -47,7 +47,7 @@ steps:
 
     docker exec -i \
     -e ACCEPT_EULA=true \
-    -v "$(Build.Repository.LocalPath)/temp:/temp" \
+    -v "$(pwd)/temp:/temp" \
     parasoft/soavirt /bin/bash -c " \
     ls -R; \
     ls /temp; \
