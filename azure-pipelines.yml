@@ -51,7 +51,8 @@ steps:
     -resource /Demo \
     -config 'user://Example Configuration' \
     -localsettings /temp/soatestcli.properties \
-    -report /temp/reports/"
+    -report /temp/reports/;
+    ls -R /temp/reports"
 
   displayName: SOATest
   env:
