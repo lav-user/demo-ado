@@ -14,7 +14,7 @@ steps:
     docker --version
     docker run -i \
     -e ACCEPT_EULA=true \
-    -v $(Pipeline.Workspace)/conf:/mnt/conf
+    -v $(Pipeline.Workspace)/conf:/mnt/conf \
     parasoft/soavirt /bin/bash -c "\
     curl --max-time 30 https://www.google.com; \
     curl --max-time 30 https://34.212.121.186:8443; \
