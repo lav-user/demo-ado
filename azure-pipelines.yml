@@ -13,7 +13,6 @@ steps:
 - script: |
     docker --version
     docker run -i \
-    --net=host \
     -e ACCEPT_EULA=true \
     -v $(Pipeline.Workspace)/conf:/mnt/conf
     parasoft/soavirt /bin/bash -c "\
