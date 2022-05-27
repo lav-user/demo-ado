@@ -37,11 +37,11 @@ steps:
     parasoft/soavirt /bin/bash -c " \
     ls /mnt; \
     cat /mnt/localsettings.properties; \
-    soatestcli \
-    -import "/mnt/$(soatest.project)"; \
+    soatestcli -import /mnt/Demo; \
+    ls /usr/local/parasoft/parasoft/soavirt_workspace; \
     soatestcli \
     -config 'user://Example Configuration' \
-    -resource $(soatest.project) \
+    -resource Demo \
     -settings /mnt/localsettings.properties \
     "
   displayName: Mount the Project contents to SOAtest CLI Docker Container adn Run tests 
