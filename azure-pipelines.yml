@@ -38,7 +38,7 @@ steps:
     ls /mnt; \
     cat /mnt/localsettings.properties; \
     soatestcli -import /mnt/Demo; \
-    ls /usr/local/parasoft/parasoft/soavirt_workspace; \
+    ls -R /usr/local/parasoft/parasoft/soavirt_workspace; \
     soatestcli \
     -config 'user://Example Configuration' \
     -resource Demo \
