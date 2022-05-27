@@ -2,6 +2,7 @@
 The following repo contains:
 
 ```
+.
 |-- Demo (SOAtest 'MyProject')
 |   |-- .project
 |   |-- .parasoft
