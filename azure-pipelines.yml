@@ -12,6 +12,10 @@ pool:
 # Set Up Project
 steps:
 - script: |
+    mkdir mnt 
+    ls -R
+    mv -R Demo mnt/.
+    ls -R
     echo $"license.network.auth.enabled=true
     license.network.password=$(license.server.password)
     license.network.url=$(license.server.url)
@@ -20,9 +24,10 @@ steps:
     soatest.license.network.edition=automation_edition
     soatest.license.use_network=true
     virtualize.license.network.edition=performance_server_edition
-    virtualize.license.use_network=true" >> localsettings.properties
-    cat localsettings.properties
-  displayName: "Set Up the localsettings.properties file"
+    virtualize.license.use_network=true" >> mnt/localsettings.properties
+    ls -R
+    cat mnt/localsettings.properties
+  displayName: "Set Up the /mnt/localsettings.properties file"
 
 # Mount Settings and Tests and Run
 - script: |
@@ -30,16 +35,16 @@ steps:
     docker --version
     docker run -i \
     -e ACCEPT_EULA=true \
-    -v $(workingDirectory):/mnt \
+    -v "$(Build.Repository.LocalPath)/mnt:/mnt" \
     parasoft/soavirt /bin/bash -c " \
-    ls /mnt/conf; \
-    cat /mnt/conf/soatest.properties; \
+    ls /mnt; \
+    cat /mnt/localsettings.properties; \
     soatestcli \
     -config 'user://Example Configuration' \
     -resource TestAssets \
-    -settings /mnt/conf/soatest.properties \
+    -settings /mnt/localsettings.properties \
     "
-  workingDirectory: $(Build.Repository.LocalPath)
+  workingDirectory: 
   displayName: Mount the Project contents to SOAtest CLI Docker Container adn Run tests 
 
 ### Import project into the workspace
