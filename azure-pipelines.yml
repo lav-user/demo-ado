@@ -38,7 +38,7 @@ steps:
     
     docker run -t \ 
     -e ACCEPT_EULA=false \
-    -v "$(Build.Repository.LocalPath)/temp:/temp"" \
+    -v "$(Build.Repository.LocalPath)/temp:/temp" \
     parasoft/soavirt \
     soatestcli \
     -localsettings /temp/soatestcli.properties \
