@@ -35,18 +35,16 @@ steps:
 - script: |
     ls -R
     docker --version
-    
     docker run -t \
-    -e ACCEPT_EULA=true \
-    -v "$(pwd)/temp:/temp" \
-    parasoft/soavirt \
+    -e ACCEPT_EULA=true -v "/home/vsts/work/1/s/temp:/temp" \
+    parasoft/soavirt /bin/bash -c " \
     soatestcli \
     -localsettings /temp/soatestcli.properties \
-    -import /temp/Demo
+    -import /temp/Demo"
 
     docker exec -i \
     -e ACCEPT_EULA=true \
-    -v "$(pwd)/temp:/temp" \
+    -v "/home/vsts/work/1/s/temp:/temp" \
     parasoft/soavirt /bin/bash -c " \
     ls -R; \
     ls /temp; \
@@ -55,8 +53,8 @@ steps:
     -resource /Demo \
     -config 'builtin://Example Configuration' \
     -localsettings /temp/soatestcli.properties \
-    -report /soavirt/report/
-    "
+    -report /soavirt/report"
+
   displayName: Mount the Project contents to SOAtest CLI Docker Container adn Run tests
   env:
     pwd: $(Build.Repository.LocalPath)
