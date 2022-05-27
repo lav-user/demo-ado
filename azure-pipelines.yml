@@ -36,7 +36,7 @@ steps:
     ls -R
     docker --version
     
-    docker run -it --rm \ 
+    docker run -t \ 
     -e ACCEPT_EULA=false \
     -v "$(Build.Repository.LocalPath)/temp:/temp"" \
     parasoft/soavirt \
@@ -45,7 +45,7 @@ steps:
     -data /soavirt/workspace \
     -import /temp/Demo
 
-    docker run -t \
+    docker exec -i \
     -e ACCEPT_EULA=true \
     -v "$(Build.Repository.LocalPath)/temp:/temp" \
     parasoft/soavirt /bin/bash -c " \
