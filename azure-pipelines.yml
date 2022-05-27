@@ -38,7 +38,7 @@ steps:
     ls /mnt; \
     cat /mnt/localsettings.properties; \
     soatestcli \
-    -import "'/mnt/$(soatest.project)"; \
+    -import "/mnt/$(soatest.project)"; \
     soatestcli \
     -config 'user://Example Configuration' \
     -resource TestAssets \
