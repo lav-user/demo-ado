@@ -11,15 +11,27 @@ pool:
 
 steps:
 - script: |
+    echo $'license.network.auth.enabled=true
+          license.network.password=$(licensePassword)
+          license.network.url=$(licenseServerUrl)
+          license.network.use.specified.server=true
+          license.network.user=admin
+          soatest.license.network.edition=automation_edition
+          soatest.license.use_network=true
+          virtualize.license.network.edition=performance_server_edition
+          virtualize.license.use_network=true' >> localsettings.properties
+    cat localsettings.properties
+  env: 
+    licenseServerUrl: $(license.server.url)
+    licensePassword: parasoft.vm
+  displayName: "Set Up the localsettings.properties file"
+- script: |
     ls -R
     docker --version
     docker run -i \
     -e ACCEPT_EULA=true \
-    -v /home/vsts/work/1/s/conf:/mnt/conf \
-    parasoft/soavirt /bin/bash -c "\
-    curl --max-time 30 https://www.google.com; \
-    curl --max-time 30 https://34.212.121.186:8443; \
-    ls; \
+    -v $(workingDirectory):/mnt \
+    parasoft/soavirt /bin/bash -c " \
     ls /mnt/conf; \
     cat /mnt/conf/soatest.properties; \
     soatestcli \
@@ -27,6 +39,8 @@ steps:
     -resource TestAssets \
     -settings /mnt/conf/soatest.properties \
     "
+  workingDirectory: $(Pipeline.Workspace)
+  displayName: Mount the Project contents to SOAtest CLI Docker Container adn Run tests 
 
 ### Import project into the workspace
 # - task: Docker@2
