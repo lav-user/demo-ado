@@ -39,17 +39,17 @@ steps:
     -e ACCEPT_EULA=true \
     -v "$(Build.Repository.LocalPath)/temp:/temp" \
     parasoft/soavirt /bin/bash -c " \
-    ls
+    ls; \
     ls /temp; \
     cat /temp/localsettings.properties; \
-    soatestcli -import '/temp/Demo' \
-    -settings /temp/localsettings.properties; \
+    soatestcli -import '/temp/Demo' -data /temp/workspace \
     ls -R /temp/Demo; \
-    cp -R /temp/Demo/* /usr/local/parasoft/parasoft/soavirt_workspace/TestAssets/*; \
+    cp -R /temp/Demo/* /temp/workspace/TestAssets/*; \
     ls -R /usr/local/parasoft/parasoft/soavirt_workspace; \
     soatestcli \
     -config 'user://Example Configuration' \
-    -resource TestAssets \
+    -data '/temp/workspace' \
+    -resource 'Demo' \
     -settings /temp/localsettings.properties \
     "
   displayName: Mount the Project contents to SOAtest CLI Docker Container adn Run tests 
