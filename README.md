@@ -1,6 +1,7 @@
 # demo-ado
 The following repo contains:
 
+```
 |-- Demo (SOAtest 'MyProject')
 |   |-- .project
 |   |-- .parasoft
@@ -10,5 +11,4 @@ The following repo contains:
 |       +-- JDBCjars/
 |           |-- db-jdbc.jar
 +--azure-pipelines.yaml
-
-
+```
