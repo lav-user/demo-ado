@@ -37,7 +37,7 @@ steps:
     docker --version
     
     docker run -t \
-    -e ACCEPT_EULA=false \
+    -e ACCEPT_EULA=true \
     -v "$(pwd)/temp:/temp" \
     parasoft/soavirt \
     soatestcli \
