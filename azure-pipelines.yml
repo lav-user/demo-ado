@@ -49,14 +49,14 @@ steps:
     -e ACCEPT_EULA=true \
     -v "$(Build.Repository.LocalPath)/temp:/temp" \
     parasoft/soavirt /bin/bash -c " \
-    ls; \
+    ls -R; \
     ls /temp; \
     cat /temp/soatestcli.properties; \
     soatestcli \
     -data /soavirt/workspace \
-    -resource /mytests \
-    -config 'builtin://Demo Configuration' \
+    -resource /Demo \
+    -config 'builtin://Example Configuration' \
     -localsettings /temp/soatestcli.properties \
-    -report /mnt/${USER}/temp/report/
+    -report /soavirt/report/
     "
   displayName: Mount the Project contents to SOAtest CLI Docker Container adn Run tests 
