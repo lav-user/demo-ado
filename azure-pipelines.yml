@@ -25,16 +25,25 @@ steps:
     soatest.license.network.edition=automation_edition
     soatest.license.use_network=true
     virtualize.license.network.edition=performance_server_edition
-    virtualize.license.use_network=true" >> temp/localsettings.properties
+    virtualize.license.use_network=true" >> /temp/soatestcli.properties
     ls -R
-    cat temp/localsettings.properties
-  displayName: "Set Up the /temp/localsettings.properties file"
+    cat /temp/soatestcli.properties
+  displayName: "Set Up the /temp/soatestcli.properties file"
 
 # Mount Settings and Tests and Run
 - script: |
     ls -R
     docker --version
     
+    docker run -it --rm \ 
+    -e ACCEPT_EULA=false \
+    -v "$(Build.Repository.LocalPath)/temp:/temp"" \
+    parasoft/soavirt \
+    soatestcli \
+    -localsettings /temp/soatestcli.properties \
+    -data /temp/workspace \
+    -import /temp/Demo
+
     docker run -t \
     -e ACCEPT_EULA=true \
     -v "$(Build.Repository.LocalPath)/temp:/temp" \
