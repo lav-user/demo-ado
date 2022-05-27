@@ -44,9 +44,9 @@ steps:
     cat /temp/soatestcli.properties; \
     soatestcli \
     -localsettings /temp/soatestcli.properties \
-    -import /temp/Demo; \
+    -import /temp/$(soatest.project); \
     soatestcli \
-    -resource /Demo \
+    -resource /$(soatest.project) \
     -config 'user://Example Configuration' \
     -localsettings /temp/soatestcli.properties \
     -report /temp"
