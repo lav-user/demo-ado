@@ -33,6 +33,7 @@ steps:
   displayName: Setting Up Build Configs
 
 # Mount Settings and Tests and Run
+# TODO convert to folder implmentation
 - script: |
     ls -R
     docker --version
