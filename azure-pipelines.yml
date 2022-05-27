@@ -37,14 +37,17 @@ steps:
     docker --version
 
     docker run -i \
+    -u 0:0 \
     -e ACCEPT_EULA=true \
     -v "$(pwd)/temp:/temp" \
     parasoft/soavirt /bin/bash -c " \
-    ls -R  '/usr/local/parasoft/parasoft/soavirt_workspace'; \
+    ls -laR /temp; \
+    chmod -R 777 /temp; \
+    chown -R parasoft:parasoft; \
     soatestcli \
     -localsettings /temp/soatestcli.properties \
     -import /temp/Demo; \
-    ls /temp; \
+    ls -laR /temp; \
     cat /temp/soatestcli.properties; \
     soatestcli \
     -resource /Demo \
