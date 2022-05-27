@@ -14,7 +14,7 @@ steps:
 - script: |
     mkdir mnt 
     ls -R
-    mv -R Demo mnt/.
+    cp -R Demo mnt/.
     ls -R
     echo $"license.network.auth.enabled=true
     license.network.password=$(license.server.password)
