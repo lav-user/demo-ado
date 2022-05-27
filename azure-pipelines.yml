@@ -35,18 +35,15 @@ steps:
 - script: |
     ls -R
     docker --version
-    docker run -t \
-    -e ACCEPT_EULA=true -v "/home/vsts/work/1/s/temp:/temp" \
-    parasoft/soavirt /bin/bash -c " \
-    soatestcli \
-    -localsettings /temp/soatestcli.properties \
-    -import /temp/Demo"
 
-    docker exec -i \
+    docker run -i \
     -e ACCEPT_EULA=true \
     -v "/home/vsts/work/1/s/temp:/temp" \
     parasoft/soavirt /bin/bash -c " \
     ls -R; \
+    soatestcli \
+    -localsettings /temp/soatestcli.properties \
+    -import /temp/Demo; \
     ls /temp; \
     cat /temp/soatestcli.properties; \
     soatestcli \
