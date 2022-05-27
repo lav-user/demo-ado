@@ -57,4 +57,6 @@ steps:
     -localsettings /temp/soatestcli.properties \
     -report /soavirt/report/
     "
-  displayName: Mount the Project contents to SOAtest CLI Docker Container adn Run tests 
+  displayName: Mount the Project contents to SOAtest CLI Docker Container adn Run tests
+  env:
+    pwd: $(Build.Repository.LocalPath)
