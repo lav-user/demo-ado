@@ -23,11 +23,11 @@ steps:
     -config 'user://Example Configuration' \
     -resource TestAssets \
     -property soatest.license.use_network=true \
-    -property license.network.url='https://34.22.121.186:8443' \
+    -property license.network.url=https://34.22.121.186:8443 \
     -property license.network.use.specified.server=true \
     -property license.netwrok.auth.enabled=true \
     -property license.network.user=admin \
-    -property license.network.password='parasoft.vm' \
+    -property license.network.password=parasoft.vm \
     -property soatest.license.network.edition=automation_edition \
     "
 
