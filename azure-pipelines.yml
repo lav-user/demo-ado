@@ -13,9 +13,7 @@ pool:
 steps:
 - script: |
     mkdir mnt 
-    ls -R
-    cp -R Demo mnt/.
-    ls -R
+    cp -R $(soatest.project) mnt/.
     echo $"license.network.auth.enabled=true
     license.network.password=$(license.server.password)
     license.network.url=$(license.server.url)
@@ -39,6 +37,8 @@ steps:
     parasoft/soavirt /bin/bash -c " \
     ls /mnt; \
     cat /mnt/localsettings.properties; \
+    soatestcli \
+    -import "'/mnt/$(soatest.project)"; \
     soatestcli \
     -config 'user://Example Configuration' \
     -resource TestAssets \
