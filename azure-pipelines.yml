@@ -16,7 +16,8 @@ steps:
     -p 80:80 \
     -e ACCEPT_EULA=true \
     parasoft/soavirt /bin/bash -c \
-    "curl 'https://34.22.121.186:8443'; soatestcli -machineid; \
+    "curl --conection-timeout 30 https://www.google.com; \
+    soatestcli -machineid; \
     soatestcli \
     -config 'user://Example Configuration' \
     -resource TestAssets \
