@@ -41,14 +41,10 @@ steps:
     -e ACCEPT_EULA=true \
     -v "$(pwd)/temp:/temp" \
     parasoft/soavirt /bin/bash -c " \
-    ls -laR /temp; \
-    chmod 777 -R /temp; \
-    chown -R parasoft:parasoft /temp; \
+    cat /temp/soatestcli.properties; \
     soatestcli \
     -localsettings /temp/soatestcli.properties \
     -import /temp/Demo; \
-    ls -laR /temp; \
-    cat /temp/soatestcli.properties; \
     soatestcli \
     -resource /Demo \
     -config 'user://Example Configuration' \
