@@ -42,8 +42,8 @@ steps:
     -v "$(pwd)/temp:/temp" \
     parasoft/soavirt /bin/bash -c " \
     ls -laR /temp; \
-    chmod -R 777 /temp; \
-    chown -R parasoft:parasoft; \
+    chmod 777 -R /temp; \
+    chown -R parasoft:parasoft /temp; \
     soatestcli \
     -localsettings /temp/soatestcli.properties \
     -import /temp/Demo; \
