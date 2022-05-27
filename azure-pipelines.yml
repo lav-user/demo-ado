@@ -41,7 +41,7 @@ steps:
     -import "/mnt/$(soatest.project)"; \
     soatestcli \
     -config 'user://Example Configuration' \
-    -resource TestAssets \
+    -resource $(soatest.project) \
     -settings /mnt/localsettings.properties \
     "
   displayName: Mount the Project contents to SOAtest CLI Docker Container adn Run tests 
