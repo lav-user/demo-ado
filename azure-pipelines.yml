@@ -16,16 +16,16 @@ steps:
     -p 80:80 \
     -e ACCEPT_EULA=true \
     parasoft/soavirt /bin/bash -c \
-    "ping www.google.com; soatestcli -machineid; \
+    "curl 'https://34.22.121.186:8443'; soatestcli -machineid; \
     soatestcli \
     -config 'user://Example Configuration' \
     -resource TestAssets \
     -property soatest.license.use_network=true \
-    -property license.network.url=$(license.server.url) \
+    -property license.network.url='https://34.22.121.186:8443' \
     -property license.network.use.specified.server=true \
     -property license.netwrok.auth.enabled=true \
     -property license.network.user=admin \
-    -property license.network.password=$(license.server.password) \
+    -property license.network.password='parasoft.vm' \
     -property soatest.license.network.edition=automation_edition \
     "
 
