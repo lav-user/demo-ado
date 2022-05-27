@@ -51,7 +51,7 @@ steps:
     -localsettings /temp/soatestcli.properties \
     -report /temp"
 
-  displayName: SOATest
+  displayName: SOAtest
   env:
     pwd: $(Build.Repository.LocalPath)
 
