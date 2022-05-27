@@ -16,7 +16,7 @@ steps:
     -p 80:80 \
     -e ACCEPT_EULA=true \
     parasoft/soavirt /bin/bash -c \
-    "soatestcli -machineid; \
+    "ping www.google.com; soatestcli -machineid; \
     soatestcli \
     -config 'user://Example Configuration' \
     -resource TestAssets \
