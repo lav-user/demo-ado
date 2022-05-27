@@ -34,7 +34,7 @@ steps:
 - script: |
     ls -R
     docker --version
-    docker run -it \
+    docker run -t \
     -e ACCEPT_EULA=true \
     -v "$(Build.Repository.LocalPath)/temp:/temp" \
     parasoft/soavirt /bin/bash -c " \
