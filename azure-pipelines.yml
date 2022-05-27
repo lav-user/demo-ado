@@ -15,20 +15,15 @@ steps:
     docker run -i \
     -p 80:80 \
     -e ACCEPT_EULA=true \
+    -v $(Pipeline.Workspace)/conf:/mnt/conf
     parasoft/soavirt /bin/bash -c "\
     curl --max-time 30 https://www.google.com; \
     curl --max-time 30 https://34.212.121.186:8443; \
-    soatestcli -machineid; \
+    cat /mnt/conf/soatest.properties; \
     soatestcli \
     -config 'user://Example Configuration' \
     -resource TestAssets \
-    -property soatest.license.use_network=true \
-    -property license.network.url=https\://34.22.121.186\:8443 \
-    -property license.network.use.specified.server=true \
-    -property license.netwrok.auth.enabled=true \
-    -property license.network.user=admin \
-    -property license.network.password=parasoft.vm \
-    -property soatest.license.network.edition=automation_edition \
+    -settings /mnt/conf/soatest.properties \
     "
 
 ### Import project into the workspace
