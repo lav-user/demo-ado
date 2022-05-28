@@ -13,11 +13,15 @@ pool:
 # Set Up Project
 steps:
 - script: |
+    echo "Starting Pipeline Execution."
+    echo "Create ./temp directory for volume mount."
     mkdir temp
     echo ${PWD}
+    echo "Copy SOAtest project contents to volume directory."
     cp -R $(soatest.project) temp/.
     
-    # Set Up and write localsetting.properties file
+    # Set Up and write .properties file
+    echo "Setting up and creating soatestcli.properties file."
     echo $"
     license.network.auth.enabled=true  
     license.network.password=$(license.server.password)
@@ -28,14 +32,14 @@ steps:
     soatest.license.use_network=true
     virtualize.license.network.edition=performance_server_edition
     virtualize.license.use_network=true" >> temp/soatestcli.properties
+    echo "Debug -- Verify workspace contents."
     ls -R
+    echo "Debug -- Verify soatestcli.properties file contents."
     cat temp/soatestcli.properties
-  displayName: Setting Up Build Configs
 
-# Mount Settings and Tests and Run
-# TODO convert to folder implmentation
-- script: |
-    ls -R
+    # Run Docker container with mount and run tests
+    echo "Run SOAtestCLI Docker container & mount ./temp volume."
+    
     docker --version
 
     docker run -i \
@@ -53,10 +57,19 @@ steps:
     -settings /temp/soatestcli.properties \
     -report /temp"
 
-  displayName: SOAtest
+    echo "Debug - Verify ./temp contents"
+    ls -R $(pwd)/temp
+    echo "Finishing Test execution."
+  displayName: Run Tests
   env:
     pwd: $(Build.Repository.LocalPath)
 
+
+# TODO convert to folder implmentation
+- script: |
+
+  displayName: SOAtest
+  
 # Publish Test Results
 - task: PublishParasoftTestResults@1
   
