@@ -21,7 +21,7 @@ steps:
     cp -R $(soatest.project) temp/.
     
     # Set Up and write .properties file
-    echo "Setting up and creating soatestcli.properties file."
+    echo $"\n~~~\nSetting up and creating soatestcli.properties file.\n"
     echo $"
     license.network.auth.enabled=true  
     license.network.password=$(license.server.password)
@@ -32,13 +32,13 @@ steps:
     soatest.license.use_network=true
     virtualize.license.network.edition=performance_server_edition
     virtualize.license.use_network=true" >> temp/soatestcli.properties
-    echo "Debug -- Verify workspace contents."
+    echo $"\nDebug -- Verify workspace contents.\n"
     ls -R
-    echo "Debug -- Verify soatestcli.properties file contents."
+    echo $"\nDebug -- Verify soatestcli.properties file contents."
     cat temp/soatestcli.properties
 
     # Run Docker container with mount and run tests
-    echo "Run SOAtestCLI Docker container & mount ./temp volume."
+    echo $"\n~~~\nRun SOAtestCLI Docker container & mount ./temp volume.\n"
     
     docker --version
 
@@ -57,9 +57,8 @@ steps:
     -settings /temp/soatestcli.properties \
     -report /temp"
 
-    echo "Debug - Verify ./temp contents"
+    echo $"\nDebug - Verify ./temp contents\n"
     ls -R $(pwd)/temp
-    echo "Finishing Test execution."
   displayName: Run Tests
   env:
     pwd: $(Build.Repository.LocalPath)
