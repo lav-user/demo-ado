@@ -63,12 +63,6 @@ steps:
   displayName: Run Tests
   env:
     pwd: $(Build.Repository.LocalPath)
-
-
-# TODO convert to folder implmentation
-- script: |
-
-  displayName: SOAtest
   
 # Publish Test Results
 - task: PublishParasoftTestResults@1
