@@ -57,7 +57,7 @@ steps:
     -settings /temp/soatestcli.properties \
     -report /temp"
 
-    echo -e "\nDebug - Verify ./temp contents\n"
+    echo -e "\nDebug -- Verify ./temp contents\n"
     ls -R $(pwd)/temp
   displayName: Run Tests
   env:
