@@ -243,7 +243,7 @@
     </NameValueProperties>
     <MultiValue className="webtool.data.MultiValue" version="1.5">
      <StringTestValue className="webtool.data.StringTestValue" version="4.1">
-      <HTTPClient_Endpoint>http://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=2</HTTPClient_Endpoint>
+      <HTTPClient_Endpoint>http://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1</HTTPClient_Endpoint>
      </StringTestValue>
      <ParameterizedTestValue className="webtool.data.ParameterizedTestValue" version="3.1">
      </ParameterizedTestValue>
@@ -272,7 +272,7 @@
       <name>deck_count</name>
       <MultiValue className="webtool.data.MultiValue" version="1.5">
        <StringTestValue className="webtool.data.StringTestValue" version="4.1">
-        <value>2</value>
+        <value>1</value>
        </StringTestValue>
        <ParameterizedTestValue className="webtool.data.ParameterizedTestValue" version="3.1">
        </ParameterizedTestValue>
