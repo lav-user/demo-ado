@@ -13,4 +13,3 @@ The following repo contains:
 |           |-- db-jdbc.jar
 +--azure-pipelines.yaml
 ```
-foo
