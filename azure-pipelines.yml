@@ -26,6 +26,9 @@ steps:
     dtp.url=https://localhost:8443
     dtp.user=admin
     dtp.password=admin
+    dtp.share.enabled=true
+    dtp.project=ADO
+    report.dtp.publish=true
     license.network.auth.enabled=true  
     license.network.password=$(license.server.password)
     license.network.url=$(license.server.url)
