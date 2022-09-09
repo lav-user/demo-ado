@@ -23,6 +23,9 @@ steps:
     # Set Up and write .properties file
     echo  -e "\n~~~\nSetting up and creating soatestcli.properties file.\n"
     echo $"
+    dtp.url=https://localhost:8443
+    dtp.user=admin
+    dtp.password=admin
     license.network.auth.enabled=true  
     license.network.password=$(license.server.password)
     license.network.url=$(license.server.url)
@@ -56,6 +59,7 @@ steps:
     -config 'user://Example Configuration' \
     -settings /temp/soatestcli.properties \
     -report /temp"
+    -publish
 
     echo -e "\nDebug -- Verify ./temp contents\n"
     ls -R $(pwd)/temp
