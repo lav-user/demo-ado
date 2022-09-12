@@ -77,9 +77,14 @@ steps:
   env:
     pwd: $(Build.Repository.LocalPath)
   
-- publish: /tmp/root/parasoft/techsupport/
-  artifact: TSA
+#- publish: /tmp/root/parasoft/techsupport/
+#  artifact: TSA
 # Publish Test Results
+
+- task: PublishPipelineArtifact@1
+  inputs:
+    targetPath: /tmp/root/parasoft/techsupport/
+    artifactName: TSA
 - task: PublishParasoftTestResults@1
   
   displayName: Publish SOAtest Test Results
