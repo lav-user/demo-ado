@@ -78,8 +78,8 @@ steps:
   env:
     pwd: $(Build.Repository.LocalPath)
   
-#- publish: /tmp/root/parasoft/techsupport/
-#  artifact: TSA
+- publish: /home/vsts/work/1/s/temp
+  artifact: TSA
 # Publish Test Results
 
 - task: PublishParasoftTestResults@1
