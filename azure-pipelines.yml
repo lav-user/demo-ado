@@ -29,6 +29,13 @@ steps:
     dtp.share.enabled=true
     dtp.project=ADO
     report.dtp.publish=true
+    techsupport.advanced=false
+    techsupport.auto_creation=true
+    techsupport.item.environment=true
+    techsupport.item.general=true
+    techsupport.send_email=false
+    techsupport.verbose=true
+    techsupport.verbose.scontrol=false
     license.network.auth.enabled=true  
     license.network.password=$(license.server.password)
     license.network.url=$(license.server.url)
