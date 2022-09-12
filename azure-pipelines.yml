@@ -33,6 +33,7 @@ steps:
     techsupport.auto_creation=true
     techsupport.item.environment=true
     techsupport.item.general=true
+    techsupport.archive_location=/temp
     techsupport.send_email=false
     techsupport.verbose=true
     techsupport.verbose.scontrol=false
