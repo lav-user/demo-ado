@@ -70,7 +70,6 @@ steps:
     -settings /temp/soatestcli.properties \
     -publish \
     -report /temp" \
-   # docker cp $(System.DefaultWorkingDirectory) ctp20212-ltc-cam-1:/tmp/root/parasoft/techsupport/
     docker ps \
     echo -e "\nDebug -- Verify ./temp contents\n"
     ls -R $(pwd)/temp
@@ -88,3 +87,4 @@ steps:
   inputs:
     testRunner: 'SOAtest9x'
     testResultsFiles: '$(Build.Repository.LocalPath)/temp/rep*.xml'
+# docker cp $(System.DefaultWorkingDirectory) ctp20212-ltc-cam-1:/tmp/root/parasoft/techsupport/
