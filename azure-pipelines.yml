@@ -71,7 +71,7 @@ steps:
     -publish \
     -report /temp" \
    # docker cp $(System.DefaultWorkingDirectory) ctp20212-ltc-cam-1:/tmp/root/parasoft/techsupport/
-    docker ps 
+    docker ps \
     echo -e "\nDebug -- Verify ./temp contents\n"
     ls -R $(pwd)/temp
   displayName: Run Tests
