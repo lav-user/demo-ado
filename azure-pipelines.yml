@@ -23,7 +23,7 @@ steps:
     # Set Up and write .properties file
     echo  -e "\n~~~\nSetting up and creating soatestcli.properties file.\n"
     echo $"
-    dtp.url=https://5d6a-49-204-200-33.in.ngrok.io:7080
+    dtp.url=$(license.server.url)
     dtp.user=admin
     dtp.password=admin
     dtp.share.enabled=true
