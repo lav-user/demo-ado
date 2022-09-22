@@ -25,7 +25,7 @@ steps:
     echo $"
     dtp.url=$(license.server.url)
     dtp.user=admin
-    dtp.password=admin
+    dtp.password=$(license.server.password)
     dtp.share.enabled=true
     dtp.project=ADO
     report.dtp.publish=true
