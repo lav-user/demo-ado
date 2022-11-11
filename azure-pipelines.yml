@@ -35,8 +35,7 @@ steps:
     docker run -i \
     --mount type=volume,volume-driver=cloudstor:azure,target=/profile_xml,volume-opt=share=parasoftfiles \
     -u 0:0 \
-    -e ACCEPT_EULA=true \
-    hello-world
+    hello-world \
     ls -R $(pwd)/temp
   displayName: Run Tests
   env:
