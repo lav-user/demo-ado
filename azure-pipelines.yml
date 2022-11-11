@@ -1,6 +1,5 @@
 # Starter pipeline
 # Pull from Repo
-# Import Project into Docekr SOAtest CLI container and Run
 # Azure YAML docs:
 # https://aka.ms/yaml
 
@@ -21,17 +20,14 @@ steps:
     sudo apt-get install -y cifs-utils
 
     # Run Docker container with mount and run tests
-    echo -e "\n~~~\nRun SOAtestCLI Docker container & mount ./temp volume.\n"
     docker --version
 
-    docker plugin install --alias cloudstor:azure \
-    --grant-all-permissions docker4x/cloudstor:18.06.1-ce-azure2\
-    CLOUD_PLATFORM=AZURE \
-    AZURE_STORAGE_ACCOUNT_KEY="=liZ+KvFZBAgxHMDkb8z7MdV9NPFfma0M0EjtgFLG2Yk2InBwwkJXjGfpe5r6Ljexn8XKOnif1rrg+AStdt6c/w==" \
-    AZURE_STORAGE_ACCOUNT="adoproject" \
-    AZURE_STORAGE_ENDPOINT="core.windows.net" \
-    DEBUG=1 \
-
+    docker service create \
+  --replicas 5 \
+  --name ping1 \
+  --mount type=volume,volume-driver=cloudstor:azure,source=sharedvol1,destination=/shareddata,volume-opt=uid=1000,volume-opt=share=sharedvol \
+  alpine ping docker.com
+    
     docker run -i \
     --mount type=volume,volume-driver=cloudstor:azure,target=/profile_xml,volume-opt=share=parasoftfiles \
     -u 0:0 \
