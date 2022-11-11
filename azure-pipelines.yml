@@ -55,6 +55,7 @@ steps:
     echo -e "\n~~~\nRun SOAtestCLI Docker container & mount ./temp volume.\n"
     
     docker --version
+    docker plugin install --alias cloudstor:adoproject --grant-all-permissions docker4x/cloudstor:18.06.1-ce-azure2 CLOUD_PLATFORM=AZURE AZURE_STORAGE_ACCOUNT_KEY="=liZ+KvFZBAgxHMDkb8z7MdV9NPFfma0M0EjtgFLG2Yk2InBwwkJXjGfpe5r6Ljexn8XKOnif1rrg+AStdt6c/w==" AZURE_STORAGE_ACCOUNT="adoproject" AZURE_STORAGE_ENDPOINT="core.windows.net" DEBUG=1 \
 
     docker run -i \
     --mount type=volume,volume-driver=cloudstor,target=/profile_xml,volume-opt=share=parasoftfiles \
