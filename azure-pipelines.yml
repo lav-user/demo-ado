@@ -23,10 +23,10 @@ steps:
     docker --version
 
     docker service create \
-  --replicas 5 \
-  --name ping1 \
-  --mount type=volume,volume-driver=cloudstor:azure,source=sharedvol1,destination=/shareddata,volume-opt=uid=1000,volume-opt=share=sharedvol \
-  alpine ping docker.com
+    --replicas 5 \
+    --name ping1 \
+    --mount type=volume,volume-driver=cloudstor:azure,source=sharedvol1,destination=/shareddata,volume-opt=uid=1000,volume-opt=share=sharedvol \
+    alpine ping docker.com
     
     docker run -i \
     --mount type=volume,volume-driver=cloudstor:azure,target=/profile_xml,volume-opt=share=parasoftfiles \
