@@ -57,6 +57,7 @@ steps:
     docker --version
 
     docker run -i \
+    --mount type=volume,volume-driver=cloudstor,target=/profile_xml,volume-opt=share=parasoftfiles \
     -u 0:0 \
     -e ACCEPT_EULA=true \
     -v "$(pwd)/temp:/temp" \
