@@ -8,7 +8,7 @@ trigger:
 - main
 
 pool:
-  vmImage: 'windows-10'
+  vmImage: 'Windows-10'
 
 # Set Up Project
 steps:
