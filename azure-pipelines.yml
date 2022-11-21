@@ -8,7 +8,7 @@ trigger:
 - main
 
 pool:
-  vmImage: 'ubuntu-latest'
+  vmImage: 'windows-10'
 
 # Set Up Project
 steps:
