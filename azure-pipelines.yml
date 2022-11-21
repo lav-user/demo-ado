@@ -8,7 +8,7 @@ trigger:
 - main
 
 pool:
-  vmImage: 'Windows-10'
+  vmImage: 'windows-latest'
 
 # Set Up Project
 steps:
