@@ -82,18 +82,18 @@ steps:
   artifact: TSA
 # Publish Test Results
 
-- task: PublishParasoftTestResults@1
+#- task: PublishParasoftTestResults@1
   
-  displayName: Publish SOAtest Test Results
-  inputs:
-    testRunner: 'SOAtest9x'
-    testResultsFiles: '$(Build.Repository.LocalPath)/temp/rep*.xml'
+#  displayName: Publish SOAtest Test Results
+#  inputs:
+#    testRunner: 'SOAtest9x'
+#    testResultsFiles: '$(Build.Repository.LocalPath)/temp/rep*.xml'
 
-- task: AzureFileCopy@5
-  inputs:
-    SourcePath: '*'
-    azureSubscription: 'Pay-As-You-Go(c7a8da78-e630-465a-9166-347c7d4150ac)'
-    Destination: 'AzureBlob'
-    storage: 'adoproject'
-    ContainerName: 'S1'
+#- task: AzureFileCopy@5
+#  inputs:
+#    SourcePath: '*'
+#    azureSubscription: 'Pay-As-You-Go(c7a8da78-e630-465a-9166-347c7d4150ac)'
+#    Destination: 'AzureBlob'
+#    storage: 'adoproject'
+#    ContainerName: 'S1'
 # docker cp $(System.DefaultWorkingDirectory) ctp20212-ltc-cam-1:/tmp/root/parasoft/techsupport/
